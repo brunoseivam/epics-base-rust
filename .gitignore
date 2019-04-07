@@ -14,3 +14,4 @@ O.*/
 *.orig
 *.log
 .*.swp
+.vscode/
