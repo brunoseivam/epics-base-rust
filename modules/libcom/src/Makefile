@@ -35,6 +35,7 @@ include $(LIBCOM)/flex/Makefile
 include $(LIBCOM)/freeList/Makefile
 include $(LIBCOM)/gpHash/Makefile
 include $(LIBCOM)/iocsh/Makefile
+include $(LIBCOM)/iocsh-rust/Makefile
 include $(LIBCOM)/log/Makefile
 include $(LIBCOM)/macLib/Makefile
 include $(LIBCOM)/misc/Makefile
