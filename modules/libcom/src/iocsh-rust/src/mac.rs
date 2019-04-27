@@ -138,8 +138,6 @@ impl Mac {
             macCreateHandle(handle_ptr, flattened_ptrs.as_ptr())
         };
 
-        eprintln!("created handle: {:?}", handle);
-
         if r < 0 {
             Err(r)
         } else {

@@ -99,14 +99,8 @@ fn from_rargs(rargs: &[ArgBuf]) -> Vec<ffi::iocshArgBuf> {
                 ArgBuf::Double(d) => ffi::iocshArgBuf { dval: *d },
                 ArgBuf::String(s) => ffi::iocshArgBuf {
                     sval: match s {
-                        Some(s) => {
-                            eprintln!(" arg: str({:?} {:?})", s, s.as_ptr());
-                            s.as_ptr()
-                        },
-                        None => {
-                            eprintln!(" arg: str(null)");
-                            std::ptr::null()
-                        }
+                        Some(s) => s.as_ptr(),
+                        None => std::ptr::null()
                     }
                 },
                 ArgBuf::Pdbbase => ffi::iocshArgBuf {
@@ -747,8 +741,6 @@ pub fn run (mode: Mode, macros: Option<String>) -> Result<(), i64> {
 
                         let cmd_args = parse_args(&location,
                             &expected_types, args.as_ref());
-
-                        eprintln!("{:?}", cmd_args);
 
                         let cmd_args = match cmd_args {
                             Ok(cmd_args) => cmd_args,
