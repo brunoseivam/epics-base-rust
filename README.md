@@ -20,10 +20,20 @@ The following files were modified/introduced for this project:
 
 ## How to compile
 
-Instructions on how to compile this project on a Debian/Ubuntu system:
+Instructions on how to compile this project on a Debian/Ubuntu system.
 
-TODO
+    sudo apt install git build-essential libreadline-dev
+    curl https://sh.rustup.rs -sSf | sh   # Press 1 at the prompt
+    source $HOME/.cargo/env   # Needed for having cargo/rustc in the path
+    
+    git clone https://github.com/brunoseivam/epics-base-rust  # This repository
+    cd epics-base-rust
+    make  # This takes a while. To recompile, issue 'make distclean all'
+
 
 ## How to test
 
-TODO
+This project replaces the iocsh module, the EPICS IOC shell. This shell is used in EPICS IOCs. 
+There is one pre-compiled IOC that can be used. To run it:
+
+    ./bin/linux-x86_64/softIoc
