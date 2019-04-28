@@ -37,3 +37,52 @@ This project replaces the iocsh module, the EPICS IOC shell. This shell is used 
 There is one pre-compiled IOC that can be used. To run it:
 
     ./bin/linux-x86_64/softIoc
+    
+Once `softIoc` is running, there are several commands that are available. Type `help` to see a list of commands:
+
+    epics> help
+    <... list of commands ...>
+
+Help on a particular command can be obtained:
+
+    epics> help dbl
+    dbl 'record type' fields
+
+A few commands are familiar:
+
+    epics> pwd
+    /home/bmartins/workspace/epics-base-rust
+    epics> echo "hello!"
+    hello!
+
+EPICS IOCs are genearlly used to keep a "distributed database" of live data. There's a test database that can be loaded:
+
+    epics> dbLoadRecords("db/iocsh_test.db")
+    epics> # dbl means DataBase List
+    epics> dbl
+    SUM
+    A
+    B
+
+This database exposes three Process Variables (PVs): A, B and SUM. SUM is the result of A + B, and is refreshed every second. 
+To see it in action, we need to first run the IOC initialization routine:
+
+    epics> iocInit
+    Starting iocInit
+    ############################################################################
+    ## EPICS R7.0.2.1
+    ## EPICS Base built Apr 27 2019
+    ############################################################################
+    iocRun: All initialization complete
+
+Once it is up, we can start manipulating the PVs:
+
+    epics> # dbpf stands for DataBase Put Field
+    epics> dbpf A 1
+    DBF_DOUBLE:         1
+    epics> dbpf B 2
+    DBF_DOUBLE:         2
+    epics> # dbgf stands for DataBase Get Field
+    epics> dbgf SUM
+    DBF_DOUBLE:         3
+
