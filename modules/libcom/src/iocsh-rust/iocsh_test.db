@@ -1,7 +1,11 @@
 record(ai, "A") {
+    field(VAL,  "0")
+    field(PINI, "YES")
 }
 
 record(ai, "B") {
+    field(VAL,  "0")
+    field(PINI, "YES")
 }
 
 record(calc, "SUM") {
