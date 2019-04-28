@@ -1,9 +1,12 @@
 # This is a Makefile fragment, see src/libCom/Makefile.
 
 Com_LIBS += iocsh
+DB += iocsh_test.db
 
 IOCSH_RUST=$(LIBCOM)/iocsh-rust
 IOCSH_RUST_TARGET=$(IOCSH_RUST)/target/debug
+
+SRC_DIRS += $(IOCSH_RUST)
 
 libiocsh.a: libiocsh.so
 

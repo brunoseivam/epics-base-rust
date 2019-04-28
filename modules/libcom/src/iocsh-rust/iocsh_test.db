@@ -1,0 +1,12 @@
+record(ai, "A") {
+}
+
+record(ai, "B") {
+}
+
+record(calc, "SUM") {
+    field(INPA, "A")
+    field(INPB, "B")
+    field(SCAN, "1 second")
+    field(CALC, "A + B")
+}
